@@ -1,11 +1,11 @@
 {
-  "name": "Yandex.Praktikum project: Mesto (photo) [server]",
+  "name": "yandex__project_mesto-photo-server",
   "version": "1.0.0",
   "description": "Сервер для интерфейса Место, разработан в рамках обучения Яндекс.Практикум.",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "start": "app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "Ivan Senkov",
