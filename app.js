@@ -5,7 +5,7 @@ const router = require('./routes');
 const { PORT = 3000 } = process.env;
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'public/dist')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', router);
 app.use('/', (req, res) => {
