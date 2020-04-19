@@ -2,20 +2,20 @@ const router = require('express').Router();
 const path = require('path');
 const fsPromises = require('fs').promises;
 
-const usersWay = path.join(__dirname, '../data/users.json');
+const usersPath = path.join(__dirname, '../data/users.json');
 
 router.get('/', (req, res) => {
-  fsPromises.readFile(usersWay, { encoding: 'utf8' })
+  fsPromises.readFile(usersPath, { encoding: 'utf8' })
     .then((data) => {
       res.send(JSON.parse(data));
     })
     .catch((err) => {
-      console.log(err);
+      console.error(err);
     });
 });
 
 router.get('/:id', (req, res) => {
-  fsPromises.readFile(usersWay, { encoding: 'utf8' })
+  fsPromises.readFile(usersPath, { encoding: 'utf8' })
     .then((data) => JSON.parse(data))
     .then((users) => {
       const { id } = req.params;
@@ -24,11 +24,11 @@ router.get('/:id', (req, res) => {
       if (user) {
         res.send(user);
       } else {
-        res.send('Нет пользователя с таким id');
+        res.status(404).send({ message: 'Нет пользователя с таким id' });
       }
     })
     .catch((err) => {
-      console.log(err);
+      console.error(err);
     });
 });
 
