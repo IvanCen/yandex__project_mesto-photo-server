@@ -1,6 +1,6 @@
 {
   "name": "yandex__project_mesto-photo-server",
-  "version": "1.0.0",
+  "version": "0.1.4",
   "description": "Сервер для интерфейса Место, разработан в рамках обучения Яндекс.Практикум.",
   "main": "app.js",
   "scripts": {
