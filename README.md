@@ -35,4 +35,4 @@ npm run start
 Node js, Express.js.
 
 ## Версия проекта
-0.1.4
+0.2.0
