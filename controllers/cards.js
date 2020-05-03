@@ -13,8 +13,13 @@ module.exports.getCards = (req, res) => {
 module.exports.deleteCard = (req, res) => {
   const { cardId } = req.params;
   Card.findByIdAndRemove(cardId)
-    .orFail(() => res.status(404).send('Not found'))
-    .then((card) => res.send({ data: card }))
+    .then((card) => {
+      if (card) {
+        res.send({ data: card });
+      } else {
+        res.status(404).send({ message: 'Нет карточки с данным id' });
+      }
+    })
     .catch((err) => {
       const status = err.status || 500;
       res.status(status)
